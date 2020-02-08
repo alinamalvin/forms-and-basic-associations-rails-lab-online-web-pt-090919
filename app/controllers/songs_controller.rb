@@ -9,11 +9,11 @@ class SongsController < ApplicationController
 
   def new
     @song = Song.new
+    2.times { @song.notes.build }
   end
 
   def create
     Song.create(song_params)
-
     if @song.save
       redirect_to @song
     else
